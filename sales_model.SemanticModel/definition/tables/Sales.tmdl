@@ -1,0 +1,98 @@
+table Sales
+	lineageTag: 65bbd94b-f012-46c1-9b0a-4a6e32d6e210
+	sourceLineageTag: [dbo].[Sales]
+
+	measure 'Total sales' = SUM(Sales[TotalAmount])
+		lineageTag: 58eac347-e2d9-4afb-9047-c31a6571e883
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total orders' = DISTINCTCOUNT(Sales[SaleID])
+		formatString: 0
+		lineageTag: d10df408-1734-4092-b894-9fa93d32e3bc
+
+		changedProperty = Name
+
+	measure 'Sales per customer' = DIVIDE([Total sales],Customers[Customer Count])
+		lineageTag: a88b175e-c408-4c9b-a028-04457e7fad48
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top product' =
+			
+			VAR A=MAX(Products[ProductName])
+			VAR B=CALCULATE(A, TOPN(1, SUMMARIZE(Sales,'Products'[ProductName], "SalesAmt",[Total sales]), [Total sales], DESC))
+			RETURN B
+		lineageTag: 36b38a4e-7697-463c-91fa-cb8399dd40e6
+
+		changedProperty = Name
+
+	column SaleID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 790611ca-7ab2-42a7-b42d-1fd5538912a3
+		sourceLineageTag: SaleID
+		summarizeBy: count
+		sourceColumn: SaleID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: bc1a94f8-45fc-4f80-b680-53ff2e046cef
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductID
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: fbc54e72-0dec-49c8-9473-fe893176eb8c
+		sourceLineageTag: ProductID
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalAmount
+		dataType: double
+		sourceProviderType: float
+		lineageTag: dd4adadc-c962-42d8-80f6-2cbae3c0b20a
+		sourceLineageTag: TotalAmount
+		summarizeBy: sum
+		sourceColumn: TotalAmount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SaleDate
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 539f51ba-054d-4b34-b88a-880df0b1ea2a
+		sourceLineageTag: SaleDate
+		summarizeBy: none
+		sourceColumn: SaleDate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Sales = entity
+		mode: directLake
+		source
+			entityName: Sales
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

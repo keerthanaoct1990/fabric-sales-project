@@ -1,0 +1,49 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "Bronze",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "Customers": {
+      "queryId": "e9e06eb9-91ba-4c09-9bfb-ad40e96b614f",
+      "queryName": "Customers",
+      "loadEnabled": false
+    },
+    "Products": {
+      "queryId": "9496c749-823b-41ee-a8a6-edb77a1f78a7",
+      "queryName": "Products",
+      "loadEnabled": false
+    },
+    "Customers_DataDestination": {
+      "queryId": "f0e565b7-7717-4b0d-bed6-6cde3ec5d4ac",
+      "queryName": "Customers_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Products_DataDestination": {
+      "queryId": "b9ab44b3-1416-4323-a0d0-9a3886dcb289",
+      "queryName": "Products_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Sales": {
+      "queryId": "3e76d8bc-502e-416a-ac85-28a649e1612f",
+      "queryName": "Sales",
+      "loadEnabled": false
+    },
+    "Sales_DataDestination": {
+      "queryId": "edc9d71e-138d-4d7e-94a6-2ceba9b9adf3",
+      "queryName": "Sales_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"45c9db13-4e7e-4c1b-88bb-270e2da7615e\",\"DatasourceId\":\"05faa77e-b69e-4b84-9d52-c07f4a2cf586\"}"
+    }
+  ]
+}

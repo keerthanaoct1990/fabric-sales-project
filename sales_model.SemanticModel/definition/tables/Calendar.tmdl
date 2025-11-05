@@ -1,0 +1,160 @@
+table Calendar
+	lineageTag: b562de4a-b1da-48bf-9439-ab22e226a417
+	sourceLineageTag: [dbo].[Calendar]
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: bdc9fbf3-faa0-41da-ab1b-dd0491f31d2f
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 2444aa1b-bb8b-45cd-ba67-2ce55602a6d9
+		sourceLineageTag: Year
+		summarizeBy: none
+		sourceColumn: Year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: bebbcba2-a851-46b9-befd-42695916a4eb
+		sourceLineageTag: Month
+		summarizeBy: none
+		sourceColumn: Month
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e666ebc1-8fa6-4923-8ee2-72b73f8a43b1
+		sourceLineageTag: Month Name
+		summarizeBy: none
+		sourceColumn: Month Name
+		sortByColumn: Month
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Short'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 2220037d-5c3a-4ded-b93e-63008e711824
+		sourceLineageTag: Month Short
+		summarizeBy: none
+		sourceColumn: Month Short
+		sortByColumn: Month
+
+		changedProperty = IsHidden
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 198332c7-84ce-416f-aa16-aceabffeed0a
+		sourceLineageTag: Quarter
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d39e16c8-0e8a-4fb0-b38e-5ca38da9582a
+		sourceLineageTag: Day
+		summarizeBy: none
+		sourceColumn: Day
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 4cd7d1ff-ebff-4bca-9f29-9f810c8754a1
+		sourceLineageTag: Day of Week
+		summarizeBy: none
+		sourceColumn: Day of Week
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name'
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 471c4a3d-7d77-40f5-b269-73be8b528f37
+		sourceLineageTag: Day Name
+		summarizeBy: none
+		sourceColumn: Day Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week of Year'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 010cd328-c5b4-4aa8-b5e0-d5f68ffc8e05
+		sourceLineageTag: Week of Year
+		summarizeBy: none
+		sourceColumn: Week of Year
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Weekend'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 1af35a44-db9b-4ed3-911c-69201feee37b
+		sourceLineageTag: Is Weekend
+		summarizeBy: none
+		sourceColumn: Is Weekend
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = entity
+		mode: directLake
+		source
+			entityName: Calendar
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

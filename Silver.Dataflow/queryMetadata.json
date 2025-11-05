@@ -1,0 +1,60 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "Silver",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "Customers": {
+      "queryId": "d266aa57-1cc6-4454-a026-1b6951c4e539",
+      "queryName": "Customers",
+      "loadEnabled": false
+    },
+    "Products": {
+      "queryId": "b8e9bf80-5f98-40c6-916a-535e4881afcd",
+      "queryName": "Products",
+      "loadEnabled": false
+    },
+    "Sales": {
+      "queryId": "38b8708d-7923-4daa-8092-f5e21647eee5",
+      "queryName": "Sales",
+      "loadEnabled": false
+    },
+    "Sales_DataDestination": {
+      "queryId": "a522ec02-e3aa-4072-95d5-01e4c4bb98f5",
+      "queryName": "Sales_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Products_DataDestination": {
+      "queryId": "56a69624-3c8b-4dd3-8e58-268fae150f97",
+      "queryName": "Products_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Customers_DataDestination": {
+      "queryId": "0271c887-26fa-4a87-ad79-09aa04b0149c",
+      "queryName": "Customers_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Calendar": {
+      "queryId": "f28ac117-a948-4339-b64b-0fd6cc973916",
+      "queryName": "Calendar",
+      "loadEnabled": false
+    },
+    "Calendar_DataDestination": {
+      "queryId": "ad9f4b5c-e3c1-42b3-95f0-37ae391d4310",
+      "queryName": "Calendar_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"45c9db13-4e7e-4c1b-88bb-270e2da7615e\",\"DatasourceId\":\"05faa77e-b69e-4b84-9d52-c07f4a2cf586\"}"
+    }
+  ]
+}
