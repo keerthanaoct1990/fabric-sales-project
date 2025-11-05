@@ -1,4 +1,5 @@
-                                            **End-to-End Sales Analytics Pipeline in Microsoft Fabric**
+  # End-to-End Sales Analytics Pipeline in Microsoft Fabric <br>
+  
 🛠 **Tools & Technologies**: Microsoft Fabric (Lakehouse, Dataflow Gen2, SQL Analytics Endpoint), Power BI, Parquet, SQL
 
 📄 **Project Description**:<br>
